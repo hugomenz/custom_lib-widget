@@ -3,5 +3,36 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "world-mobile": {
+      "projectType": "library",
+      "root": "projects/world-mobile",
+      "sourceRoot": "projects/world-mobile/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/world-mobile/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/world-mobile/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/world-mobile/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/world-mobile/src/test.ts",
+            "tsConfig": "projects/world-mobile/tsconfig.spec.json",
+            "karmaConfig": "projects/world-mobile/karma.conf.js"
+          }
+        }
+      }
+    }
   }
 }
